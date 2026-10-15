@@ -13,6 +13,10 @@ describe('Feature: chat-panel-menu', () => {
     HomePagePo.goTo();
     chat.open();
     chat.isReady();
+
+    const welcomeMessage = chat.getMessage(1);
+
+    welcomeMessage.isCompleted();
   });
 
   afterEach(() => {
@@ -106,16 +110,16 @@ describe('Feature: chat-panel-menu', () => {
     cy.get('[data-testid="rancher-ai-ui-chat-container"]').screenshot('chat-panel-menu-test-6-new-chat-shortcut');
   });
 
-  it('Test 7: Keyboard shortcut Ctrl+Shift+S (Toggle history) opens history panel', () => {
+  it('Test 7: Keyboard shortcut Ctrl+Shift+H (Toggle history) opens history panel', () => {
     const history = new HistoryPo();
 
     history.isClosed();
 
-    cy.get('[data-testid="rancher-ai-ui-chat-container"]').type('{ctrl}{shift}s');
+    cy.get('[data-testid="rancher-ai-ui-chat-container"]').type('{ctrl}{shift}h');
 
     history.isOpen();
 
-    cy.get('[data-testid="rancher-ai-ui-chat-container"]').type('{ctrl}{shift}s');
+    cy.get('[data-testid="rancher-ai-ui-chat-container"]').type('{ctrl}{shift}h');
 
     history.isClosed();
 
