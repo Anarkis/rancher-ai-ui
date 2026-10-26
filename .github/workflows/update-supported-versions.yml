@@ -9,7 +9,7 @@ permissions: {}
 
 # Serializes runs that write to the same supported-versions.txt on main
 concurrency:
-  group: update-supported-versions-${{ github.ref_name }} # or a static string if updating the same target branch
+  group: update-supported-versions
   cancel-in-progress: false
 
 jobs:
